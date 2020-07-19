@@ -60,3 +60,11 @@ Instalar o Pycopg, o adaptador de banco de dados PostgreSQL mais popular para a 
 ```pip install psycopg2-binary```
 
 Adicionar configurações de ENGINE, NAME, USER, PASSWORD e HOST em \<nome-do-projeto>/settings.py
+
+# Django-admin
+
+Adicionar modelos no `admin.py` e acesar a rota pré criada pelo Django `/admin`.
+
+Criar super usuário para acessar área admnistrativa e gerenciar (CRUD) modelos por lá:
+
+```python manage.py createsuperuser```
