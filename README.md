@@ -42,3 +42,21 @@ Dentro da pasta introducao/aplicacao executar no venv:
 ```python manage.py startapp <nome-do-app>```
 
 Adicionar nome do app na chave INSTALLED_APPS em \<nome-do-projeto>/settings.py
+
+# Banco de dados PostgreSQL
+
+Baixar de https://www.postgresql.org/download
+
+Para Linux, após seguir instruções também executar o comando
+
+``` sudo apt-get install pgadmin4```
+
+Abri o PgAdmin e criar uma nova servidor (conexão). Em seguida criar um novo Database. 
+
+Instalar o Pycopg, o adaptador de banco de dados PostgreSQL mais popular para a linguagem de programação Python. No venv executar:
+
+```pip install psycopg2```
+
+```pip install psycopg2-binary```
+
+Adicionar configurações de ENGINE, NAME, USER, PASSWORD e HOST em \<nome-do-projeto>/settings.py
