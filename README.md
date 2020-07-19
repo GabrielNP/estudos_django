@@ -20,3 +20,25 @@ Dentro do ambiente virtual (venv) instalar o Django
 *Para sair do ambiente virtual, executar:
 
 ```deactivate```
+
+
+# Iniciar projeto do zero
+
+Dentro da pasta introducao/aplicacao executar no venv:
+
+```django-admin startproject <nome-d-projeto> .```
+
+# Executar servidor
+
+Dentro da pasta introducao/aplicacao executar no venv:
+
+```python manage.py runserver```
+
+
+# Iniciar novo app
+
+Dentro da pasta introducao/aplicacao executar no venv:
+
+```python manage.py startapp <nome-do-app>```
+
+Adicionar nome do app na chave INSTALLED_APPS em \<nome-do-projeto>/settings.py
