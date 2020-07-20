@@ -7,11 +7,11 @@ Respositório de estudos de Ṕython com Django 2 baseado em:
 
 # Configurações de ambiente utilizadas (Linux)
  
-Ativar venv em introducao/aplicacao:
+Ativar venv em deacaplicacao:
 
 ```python3 -m venv ./venv```
 
-```source /caminho/completo/ate/o/projeto/introducao/aplicacao/venv/bin/activate```
+```source /caminho/completo/ate/o/projeto/deacaplicacao/venv/bin/activate```
 
 Dentro do ambiente virtual (venv) instalar o Django
 
@@ -24,20 +24,20 @@ Dentro do ambiente virtual (venv) instalar o Django
 
 # Iniciar projeto do zero
 
-Dentro da pasta introducao/aplicacao executar no venv:
+Dentro da pasta deacaplicacao executar no venv:
 
 ```django-admin startproject <nome-d-projeto> .```
 
 # Executar servidor
 
-Dentro da pasta introducao/aplicacao executar no venv:
+Dentro da pasta deacaplicacao executar no venv:
 
 ```python manage.py runserver```
 
 
 # Iniciar novo app
 
-Dentro da pasta introducao/aplicacao executar no venv:
+Dentro da pasta deacaplicacao executar no venv:
 
 ```python manage.py startapp <nome-do-app>```
 
