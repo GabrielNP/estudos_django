@@ -3,6 +3,8 @@
 Respositório de estudos de Ṕython com Django 2 baseado em:
             
     https://cursos.alura.com.br/course/fundamentos-django-2
+    
+    https://cursos.alura.com.br/course/integracao-modelos-django-2
 
 
 # Configurações de ambiente utilizadas (Linux)
