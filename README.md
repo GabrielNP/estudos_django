@@ -70,3 +70,7 @@ Adicionar modelos no `admin.py` e acesar a rota pré criada pelo Django `/admin`
 Criar super usuário para acessar área admnistrativa e gerenciar (CRUD) modelos por lá:
 
 ```python manage.py createsuperuser```
+
+# Instalar módulo para trabalhar com imagens
+
+``` pip install pillow ```
