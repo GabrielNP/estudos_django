@@ -1,4 +1,4 @@
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from receitas.models import Receita
@@ -7,8 +7,8 @@ def cadastro(request):
     if request.method == 'POST':
         nome = request.POST['nome']
         email = request.POST['email']
-        senha = request.POST['pasword']
-        senha2 = request.POST['pasword2']
+        senha = request.POST['password']
+        senha2 = request.POST['password2']
 
         if not nome.strip():
             print('O campo nome deve ser corretamente preenchido')
@@ -19,7 +19,9 @@ def cadastro(request):
             return redirect('cadastro')
 
         if senha != senha2:
+            messages.error(request, 'As senhas não são iguais')
             print('As senhas não são iguais')
+            return redirect('cadastro')
 
         if User.objects.filter(email=email).exists():
             print('Usuário com este e-mail já existe')
@@ -28,7 +30,8 @@ def cadastro(request):
         user = User.objects.create_user(username=nome, email=email, password=senha)
         user.save()
 
-        print(f'Dados do cadastro\nNome: {nome}\nE-mail: {email}\nSenha: {senha}')
+        print(f'Dados do cadastro\nNome: {nome}\nE-mail: {email}\nSenha: {senha}\nSenha2: {senha2}')
+        messages.success(request, 'Cadastro realizado com sucesso')
         return redirect('login')
     else:
         return render(request, 'usuarios/cadastro.html')
