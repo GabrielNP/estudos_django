@@ -33,7 +33,7 @@ def cadastro(request):
     else:
         return render(request, 'usuarios/cadastro.html')
 
-def cria_receitas(request):
+def cria_receita(request):
     if request.method == 'POST':
         nome_receita = request.POST['nome_receita']
         ingredientes = request.POST['ingredientes']

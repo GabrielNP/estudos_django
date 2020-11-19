@@ -11,7 +11,6 @@ class Receita(models.Model):
     rendimento = models.CharField(max_length=100)
     categoria = models.CharField(max_length=100)
     date_receita = models.DateTimeField(default=datetime.now, blank=True)
-    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     publicada = models.BooleanField(default=False)
     foto_receita = models.ImageField(upload_to='fotos_%Y%m%d', blank=True)
 
