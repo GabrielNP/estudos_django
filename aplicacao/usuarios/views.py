@@ -1,6 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from receitas.models import Receita
 
 def cadastro(request):
     if request.method == 'POST':
@@ -32,6 +33,42 @@ def cadastro(request):
     else:
         return render(request, 'usuarios/cadastro.html')
 
+def cria_receitas(request):
+    if request.method == 'POST':
+        nome_receita = request.POST['nome_receita']
+        ingredientes = request.POST['ingredientes']
+        modo_preparo = request.POST['modo_preparo']
+        tempo_preparo = request.POST['tempo_preparo']
+        rendimento = request.POST['rendimento']
+        categoria = request.POST['categoria']
+        foto_receita = request.FILES['foto_receita']
+
+        user = get_object_or_404(User, pk=request.user.id)
+        receita = Receita.objects.create(
+            pessoa=user, 
+            nome_receita=nome_receita, 
+            ingredientes=ingredientes, 
+            modo_preparo=modo_preparo, 
+            tempo_preparo=tempo_preparo, 
+            rendimento=rendimento, 
+            categoria=categoria, 
+            foto_receita=foto_receita)
+        receita.save()
+        return redirect('dashboard')
+    else:
+        return render(request, 'usuarios/cria_receita.html')
+
+def dashboard(request):
+    if request.user.is_authenticated:
+        id = request.user.id
+        receitas = Receita.objects.order_by('-date_receita').filter(pessoa=id)
+        dados = {
+            'receitas': receitas
+        }
+        return render(request, 'usuarios/dashboard.html', dados)
+    else:
+        return redirect('index')
+
 def login(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -55,10 +92,3 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
-
-
-def dashboard(request):
-    if request.user.is_authenticated:
-        return render(request, 'usuarios/dashboard.html')
-    else:
-        return redirect('index')
