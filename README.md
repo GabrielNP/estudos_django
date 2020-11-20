@@ -43,7 +43,7 @@ pip install -r requirements.txt
 deactivate
 ```
 
-# Banco de dados
+## Banco de dados
 1. Baixar de https://www.postgresql.org/download
 
 2. Para Linux após seguir instruções também executar o comando
