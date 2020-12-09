@@ -74,6 +74,11 @@ def dashboard(request):
     else:
         return redirect('index')
 
+def deleta_receita(request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
+    receita.delete()
+    return redirect('dashboard')
+
 def login(request):
     if request.method == 'POST':
         email = request.POST['email']

@@ -8,6 +8,8 @@ Respositório de estudos de Python com Django 2 baseado em:
 
 - https://cursos.alura.com.br/course/autenticacao-django-2
 
+- https://cursos.alura.com.br/course/django-2-boas-praticas
+
 # Dependências
 - Python 3
 - PostgreSQL
