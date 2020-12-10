@@ -4,8 +4,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from receitas.models import Receita
 
 
-
 def cadastro(request):
+    """
+    Cadastra um novo usuário no sistema
+    """
     if request.method == 'POST':
         nome = request.POST['nome']
         email = request.POST['email']
@@ -40,8 +42,6 @@ def cadastro(request):
     else:
         return render(request, 'usuarios/cadastro.html')
 
-
-
 def dashboard(request):
     if request.user.is_authenticated:
         id = request.user.id
@@ -53,9 +53,10 @@ def dashboard(request):
     else:
         return redirect('index')
 
-
-
 def login(request):
+    """
+    Realiza o login no sistema
+    """
     if request.method == 'POST':
         email = request.POST['email']
         senha = request.POST['senha']
