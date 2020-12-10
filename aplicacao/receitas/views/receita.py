@@ -1,5 +1,6 @@
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from receitas.models import Receita
 
@@ -55,8 +56,11 @@ def deleta_receita(request, receita_id):
     return redirect('dashboard')
 
 def index(request):
-    receitas = Receita.objects.order_by('-date_receita').filter(publicada=True)    
-    dados = { 'receitas' : receitas }
+    receitas = Receita.objects.order_by('-date_receita').filter(publicada=True)
+    paginator = Paginator(receitas, 3)   
+    page = request.GET.get('page')
+    receitas_por_pagina = paginator.get_page(page)
+    dados = { 'receitas': receitas_por_pagina }
     
     return render(request, 'receitas/index.html', dados)
 
