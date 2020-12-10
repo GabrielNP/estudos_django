@@ -1,14 +1,6 @@
 # Estudos Django 2
 
-Respositório de estudos de Python com Django 2 baseado em:
-            
-- https://cursos.alura.com.br/course/fundamentos-django-2
-
-- https://cursos.alura.com.br/course/integracao-modelos-django-2
-
-- https://cursos.alura.com.br/course/autenticacao-django-2
-
-- https://cursos.alura.com.br/course/django-2-boas-praticas
+Respositório de estudos de Python com Django 2
 
 # Dependências
 - Python 3
@@ -25,17 +17,17 @@ git clone https://github.com/GabrielNP/estudos_django.git
 ```
 
 ## Criar ambiente virtual do Python (venv)
-```
-// Criar
+```bash
+# Criar
 python3 -m venv .venv
 
-// Ativar
-source /caminho/completo/ate/o/projeto/aplicacao/.venv/bin/activate
+# Ativar
+source /caminho/completo/ate/o/projeto/.venv/bin/activate
 ```
 
 ## Instalar bibliotecas necessárias
-```
-// Com o ambiente virtual ativado e dentro do diretório aplicacao
+```bash
+# Com o ambiente virtual ativado e dentro do diretório do projeto
 pip install -r requirements.txt
 ```
 
@@ -56,11 +48,11 @@ deactivate
 
 3. Abrir o PgAdmin e criar um nova conexão. Em seguida criar um novo Database.
 
-4. Adicionar configurações de ENGINE, NAME, USER, PASSWORD e HOST em `aplicacao/aluraceita/settings.py`
+4. Adicionar configurações de ENGINE, NAME, USER, PASSWORD e HOST em `aluraceita/settings.py`
 
 ## Executar as migrações
-```
-// Em aplicacao
+```bash
+# No diretório raiz do projeto
 python manage.py migrate
 ```
 # Como executar
@@ -68,7 +60,7 @@ python manage.py migrate
 1. Ativar ambiente virtual (venv)
 2. Executar servidor
 
-    Dentro da pasta de acaplicacao executar no venv:
+    Dentro do diretório raiz do projeto executar no venv:
 
     ```
     python manage.py runserver
@@ -76,7 +68,7 @@ python manage.py migrate
 # Doc Django
 ## Iniciar projeto do zero
 
-Dentro da pasta deacaplicacao executar no venv:
+Dentro do diretório raiz do projeto executar no venv:
 
 ```
 django-admin startproject <nome-d-projeto> .
@@ -84,7 +76,7 @@ django-admin startproject <nome-d-projeto> .
 
 ## Iniciar novo app
 
-Dentro da pasta deacaplicacao executar no venv:
+Dentro do diretório raiz do projeto executar no venv:
 
 ```
 python manage.py startapp <nome-do-app>
@@ -118,5 +110,15 @@ Instalar o Pycopg, o adaptador de banco de dados PostgreSQL mais popular para a 
 ```pip install psycopg2-binary```
 
 Adicionar configurações de ENGINE, NAME, USER, PASSWORD e HOST em \<nome-do-projeto>/settings.py
+
+# Referências
+            
+- https://cursos.alura.com.br/course/fundamentos-django-2
+
+- https://cursos.alura.com.br/course/integracao-modelos-django-2
+
+- https://cursos.alura.com.br/course/autenticacao-django-2
+
+- https://cursos.alura.com.br/course/django-2-boas-praticas
 
 
