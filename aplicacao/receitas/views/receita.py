@@ -1,7 +1,7 @@
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
-from .models import Receita
+from receitas.models import Receita
 
 
 def atualiza_receita(request):
@@ -18,20 +18,6 @@ def atualiza_receita(request):
             r.foto_receita = request.FILES['foto_receita']
         r.save()
         return redirect('dashboard')
-
-def buscar(request):
-    lista_receitas = Receita.objects.order_by('-date_receita').filter(publicada=True)
-
-    if 'buscar' in request.GET:
-        nome_a_buscar = request.GET['buscar']
-        if buscar:
-            lista_receitas = lista_receitas.filter(nome_receita__icontains=nome_a_buscar)
-
-    dados = {
-        'receitas': lista_receitas
-    }
-    
-    return render(request, 'receitas/buscar.html', dados)
 
 def cria_receita(request):
     if request.method == 'POST':
