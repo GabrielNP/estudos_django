@@ -58,20 +58,27 @@ def login(request):
     Realiza o login no sistema
     """
     if request.method == 'POST':
-        email = request.POST['email']
+        nome = request.POST['email']
         senha = request.POST['senha']
 
-        if campo_vazio(email) or campo_vazio(senha):
-            messages.error(request, 'Os campos e-mail e senha não podem ficar em branco')
+        if campo_vazio(nome) or campo_vazio(senha):
+            messages.error(request, 'Os campos usuário e senha não podem ficar em branco')
             return redirect('login')
 
-        if User.objects.filter(email=email).exists():
-            nome = User.objects.filter(email=email).values_list('username', flat=True).get()
-            user = auth.authenticate(request, username=nome, password=senha)
-
-            if user is not None:
-                auth.login(request, user)
-                print('Usuario logado com sucesso')
+        email = '@' in nome
+        if email:
+            if User.objects.filter(email=nome).exists():
+                nome = User.objects.filter(email=nome).values_list('username', flat=True).get()
+                user = auth.authenticate(request, username=nome, password=senha)
+                if user is not None:
+                    auth.login(request, user)
+                    print('Usuario logado com sucesso')
+        else:
+            if User.objects.filter(username=nome).exists():
+                user = auth.authenticate(request, username=nome, password=senha)        
+                if user is not None:
+                        auth.login(request, user)
+                        print('Usuario logado com sucesso')
 
         return redirect('dashboard')
     return render(request, 'usuarios/login.html')
