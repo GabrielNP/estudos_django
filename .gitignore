@@ -129,4 +129,7 @@ dmypy.json
 .pyre/
 
 
+# About this project
 .vscode
+.venv
+media/
